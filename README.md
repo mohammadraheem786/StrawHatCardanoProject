@@ -8,7 +8,7 @@ This project was bootstrapped with Create React App and leverages the CIP-30 sta
 
 For a comprehensive overview of the project's vision, architecture, and goals, please refer to our presentation deck:
 
-👉 View the Project Presentation on Google Drive
+👉 View the Project Presentation on Google Drive : https://drive.google.com/file/d/1sbUIW1LefAx8GUBc8Dqtzbax0HGRIAVd/view?usp=sharing
 
 📌 Table of Contents
 
