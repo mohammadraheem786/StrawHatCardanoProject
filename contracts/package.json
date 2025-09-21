@@ -1,0 +1,21 @@
+{
+  "name": "strawhat-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for StrawHat DeFi Platform",
+  "scripts": {
+    "build": "cabal build",
+    "test": "cabal test",
+    "deploy": "node scripts/deploy.js",
+    "compile": "plutus-tx compile",
+    "validate": "plutus-tx validate"
+  },
+  "dependencies": {
+    "@cardano-sdk/core": "^0.15.0",
+    "@cardano-sdk/wallet": "^0.15.0",
+    "lucid-cardano": "^0.10.7"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "typescript": "^5.3.0"
+  }
+}
