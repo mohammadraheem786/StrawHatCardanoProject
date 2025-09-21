@@ -1,57 +1,209 @@
+/* ---------- APP CONTAINER ---------- */
 .App {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #f5f5f7 0%, #dbefff 100%);
+  min-height: 100vh;
+  color: #272727;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
+/* ---------- HEADER & LOGO ---------- */
+.App-header {
+  background: linear-gradient(to bottom, #1f2029, #16233b);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(12px + 1.5vmin);
+  color: #fff;
+  padding-top: 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- SPINNING STRAWHAT LOGO ---------- */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 223, 0, 0.6);
+  border: 4px solid #ffcd00;
+  animation: App-logo-spin 20s linear infinite, bounce 3s ease-in-out infinite;
 }
 
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+/* ---------- LINKS ---------- */
+.App-link {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.App-link:hover {
+  color: #ff6347;
+  text-decoration: underline;
+}
+
+/* ---------- WALLET SELECT ---------- */
 .wallets-wrapper {
   display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .wallet-label {
   display: flex !important;
   align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background-color: #fff8e1;
+  border: 2px solid #ffd700;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.wallet-label:hover {
+  background-color: #ffeaa7;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.wallet-label img {
+  width: 30px;
+  height: 30px;
 }
 
 .wallet-label span {
-  font-size: 20px;
-  font-family: RobotoRegular;
-  font-style: normal;
-  font-weight: normal;
+  font-size: 18px;
+  font-weight: 600;
   color: #272727;
+  white-space: nowrap;
   overflow: hidden;
-  text-align: center;
+  text-overflow: ellipsis;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* ---------- BUTTONS ---------- */
+button {
+  background: linear-gradient(to right, #ffcd00, #ff6347);
+  color: #1f2029;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(255, 99, 71, 0.3);
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 223, 0, 0.5);
+}
+
+/* ---------- TAB PANELS ---------- */
+.bp3-tab {
+  font-weight: 500;
+  color: #1f2029;
+}
+
+.bp3-tab.bp3-active {
+  background: linear-gradient(to right, #ffcd00, #ff6347) !important;
+  color: #1f2029 !important;
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.bp3-tab-panel {
+  padding: 25px;
+  background-color: #fffbea;
+  border-radius: 0 12px 12px 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+/* ---------- FORM ELEMENTS ---------- */
+.bp3-input-group, .bp3-numeric-input {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.bp3-form-group label {
+  font-weight: 600;
+  color: #272727;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ---------- LISTS ---------- */
+ul {
+  padding-left: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ---------- STRAWHAT OCEAN ANIMATION ---------- */
+body::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('https://i.imgur.com/8r0M7lO.png') repeat;
+  background-size: cover;
+  opacity: 0.05;
+  animation: waveMotion 60s linear infinite;
+  z-index: 0;
+}
+
+@keyframes waveMotion {
+  0% { transform: translateX(0) translateY(0) rotate(0deg); }
+  50% { transform: translateX(50px) translateY(10px) rotate(1deg); }
+  100% { transform: translateX(0) translateY(0) rotate(0deg); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .wallets-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 80%;
+  }
+
+  .bp3-tab-panel {
+    padding: 15px;
+  }
+
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    height: 30vmin;
   }
 }
